@@ -1,7 +1,4 @@
 /*
-	StarTrekTimelinesSpreadsheet - A tool to help with crew management in Star Trek Timelines
-	Copyright (c) 2017 - 2018 IAmPicard
-
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
@@ -43,7 +40,7 @@ export class STTApiClass {
 	private _accessToken: string | undefined;
 	// Change this to use mock data - JSON data from previously captured responses, edited as necessary to coerce particular behavior
 	private _usemock: boolean = false;
-	private mockPath: string = '~/StarTrekTimelinesSpreadsheet/mock/';//getAppPath() + '/mock/'; // NOTE: needs trailing path separator
+	private mockPath: string = '~/DatacorePADD/mock/';//getAppPath() + '/mock/'; // NOTE: needs trailing path separator
 	private _net: NetworkFetch;
 	private _playerData?: PlayerResponseDTO;
 	private _starbaseData: {
@@ -141,7 +138,7 @@ export class STTApiClass {
 
 				//TODO: get datacore to load for web app
 				// #!if ENV === 'electron'
-				//addr = "file:/?/StarTrekTimelinesSpreadsheet/src/utils/" + 'allcrew.json';
+				//addr = "file:/?/DatacorePADD/src/utils/" + 'allcrew.json';
 				// #!else
 				//addr = this.serverAddress + 'allcrew.json';
 				// #!endif

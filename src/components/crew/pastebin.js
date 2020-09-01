@@ -185,8 +185,7 @@ async function shareCrewInternal(options, missionList) {
 			title: options.title,
 			description: options.description,
 			created: {
-				tool: 'Star Trek Timelines Spreadsheet Tool v' + getAppVersion(),
-				url: 'https://iampicard.github.io/',
+				tool: 'Datacore PADD v' + getAppVersion(),
 				when: (new Date())
 			},
 			crew: STTApi.roster,

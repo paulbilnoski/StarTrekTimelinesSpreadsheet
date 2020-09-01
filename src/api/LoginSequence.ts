@@ -152,12 +152,16 @@ export async function loginSequence(onProgress: (description: string, subDesc?: 
 	}
 
 	onProgress('Loading Sprites...');
+	const spriteCount = Object.keys(CONFIG.SPRITES).length;
+	let remaining = spriteCount;
 	for (let sprite in CONFIG.SPRITES) {
+		--remaining;
 		CONFIG.SPRITES[sprite].url = STTApi.imageProvider.getSpriteCached(CONFIG.SPRITES[sprite].asset, sprite);
 		if (CONFIG.SPRITES[sprite].url === '') {
-			await updateProgress('', sprite,
+			onProgress('Loading Sprites...', `(${remaining} remaining)`);
+			await
 				STTApi.imageProvider.getSprite(CONFIG.SPRITES[sprite].asset, sprite, sprite)
-					.then(found => { CONFIG.SPRITES[found.id].url = found.url; }));
+					.then(found => { CONFIG.SPRITES[found.id].url = found.url; });
 		}
 	}
 }

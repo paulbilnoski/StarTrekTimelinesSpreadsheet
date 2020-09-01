@@ -1,6 +1,6 @@
 {
-	"name": "startrektimelinestool",
-	"productName": "Star Trek Timelines Crew Management",
+	"name": "datacorepadd",
+	"productName": "Datacore PADD",
 	"version": "0.9.1",
 	"description": "Tool for managing Star Trek Timelines crew",
 	"author": "paulbilnoski",
@@ -15,7 +15,7 @@
 	},
 	"license": "GPL-3.0",
 	"build": {
-		"appId": "IAmPicard.StarTrekTimelinesTool",
+		"appId": "DatacorePADD",
 		"mac": {
 			"category": "public.app-category.games"
 		}

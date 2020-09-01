@@ -9,7 +9,7 @@ const outPath = path.join(rootPath, 'builds');
 if (os.platform() === 'win32') {
 	builder.build({
 		targets: Platform.WINDOWS.createTarget(),
-		prepackaged: path.join(outPath, 'Star Trek Timelines Crew Management-win32-x64'),
+		prepackaged: path.join(outPath, 'DatacorePADD-win32-x64'),
 		config: {
 			win: {
 				target: ['nsis', '7z'],
@@ -23,7 +23,7 @@ if (os.platform() === 'win32') {
 else {
 	builder.build({
 		targets: Platform.MAC.createTarget(),
-		prepackaged: path.join(outPath, 'Star Trek Timelines Crew Management-darwin-x64/Star Trek Timelines Crew Management.app'),
+		prepackaged: path.join(outPath, 'DatacorePADD-darwin-x64/DatacorePADD.app'),
 		config: {
 			mac: {
 				identity: null,

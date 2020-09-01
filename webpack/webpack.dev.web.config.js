@@ -17,7 +17,7 @@ module.exports = merge(baseConfig('webtest', true), {
 			persistentCache: true,
 			inject: true,
 			background: '#393737',
-			title: 'Star Trek Timelines Crew Management',
+			title: 'Datacore PADD',
 			icons: {
 				android: true,
 				appleIcon: true,

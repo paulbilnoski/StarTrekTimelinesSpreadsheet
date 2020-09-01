@@ -1,6 +1,5 @@
 /*
-    StarTrekTimelinesSpreadsheet - A tool to help with crew management in Star Trek Timelines
-    Copyright (C) 2017-2018 IAmPicard
+    Datacore PADD - A tool to help with crew management in Star Trek Timelines
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -97,7 +96,7 @@ function createWindow() {
   // Track window state
   mainWindowStateKeeper.track(mainWindow);
 
-  mainWindow.setTitle('Star Trek Timelines Crew Management v' + app.getVersion());
+  mainWindow.setTitle('Datacore PADD v' + app.getVersion());
 
   // and load the index.html of the app.
   let indexPath;
@@ -173,7 +172,7 @@ ipcMain.on("fb-authenticate", function (event, arg) {
   })
 });
 
-app.setAppUserModelId("IAmPicard.StarTrekTimelinesTool");
+app.setAppUserModelId("DatacorePADD");
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

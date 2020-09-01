@@ -80,7 +80,7 @@ module.exports = function(targetEnv, devEnv) {
 			extensions: ['.js', '.ts', '.tsx', '.jsx']
 		},
 		plugins: [
-			new HtmlWebpackPlugin({ template: './webpack/template.html', title: `Star Trek Timelines Crew Management ${PACKAGE.version}` }),
+			new HtmlWebpackPlugin({ template: './webpack/template.html', title: `Datacore PADD ${PACKAGE.version}` }),
 			new webpack.DefinePlugin({
 				'process.env.NODE_ENV': JSON.stringify(devEnv ? 'development' : 'production'),
 				'process.env.APP_VERSION': JSON.stringify(PACKAGE.version)

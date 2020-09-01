@@ -237,7 +237,6 @@ export class AppHome extends React.Component<AppHomeProps, AppHomeState> {
 						<br />
 					</div>
 					<DialogFooter>
-						{/* <PrimaryButton onClick={() => { openShellExternal('https://github.com/IAmPicard/StarTrekTimelinesSpreadsheet/blob/master/README.md'); }} text='Read more...' /> */}
 						<DefaultButton onClick={() => { this._onDismissBootMessage(); }} text='Ok' />
 					</DialogFooter>
 				</Dialog>

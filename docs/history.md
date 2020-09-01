@@ -46,8 +46,10 @@ In January 2019, the original developer and maintainer of this project known as 
 > <p>Thank you for your support!</p>
 > <p>-- IAmPicard 🖖</p>
 
+After almost two years of improvements and maintenance, the project has moved to be incorporated into the Datacore project, primarily focused on
+providing [https://datacore.app] as a community resource.
+
 This git repository contains the last state of that tool as well as many further modifications. The modifications started as minor
-improvements as well as changes to allow it to continue to function, and have grown to be more substantial and include new features such as aids with weekly events. I have no intention of publishing a web version since I don't have the resources
-or desire to get into the same situation as the original author.
+improvements as well as changes to allow it to continue to function, and have grown to be more substantial and include new features such as aids with weekly events. A web version may be a future possibility.
 
 I encourage you to only use a version of the tool from a trusted source (such as the [**Releases**](https://github.com/paulbilnoski/StarTrekTimelinesSpreadsheet/releases) page on GitHub). If a "well intentioned" person online offers to send you a modified version with "extra features" ask for the source code and manually compare against what's here in the repo to ensure no malicious functionality was added.
