@@ -616,12 +616,14 @@ const VoyageState = (props: {
 				<div className='recall'>
 					<VoyageStat label="Recall Time Now" value={formatTimeSeconds(recallNowDurationSec)} />
 					<VoyageStat label="Recall End" value={Moment().add(recallNowDurationSec, 's').format('h:mma')} />
+					{/* #!if allowPush == true */}
 					<div className="ui statistic">
 						<button className='ui button' onClick={() => props.recall()}>
 							<i className='icon undo' />
 							Recall now
 						</button>
 					</div>
+					{/* #!endif */}
 				</div>
 			</div>
 		);
@@ -645,7 +647,12 @@ const VoyageDilemma = (props: {
 	reload: () => void;
 }) => {
 	async function chooseDilemma(voyageId: number, dilemmaId: number, index: number) {
-		if (index < 0) {
+		let allowChoose = false;
+		// #!if allowPush == true
+		allowChoose = true;
+		// #!endif
+
+		if (index < 0 || !allowChoose) {
 			return;
 		}
 		await resolveDilemma(voyageId, dilemmaId, index);

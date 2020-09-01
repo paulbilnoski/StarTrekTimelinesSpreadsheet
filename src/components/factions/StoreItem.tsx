@@ -29,6 +29,10 @@ export const StoreItem = (props: {
 
 	let curr = CONFIG.CURRENCIES[props.storeItem.offer.cost.currency];
 	let locked = props.storeItem.locked || props.storeItem.offer.purchase_avail === 0;
+	let nobuy = true
+	// #!if allowPush == true
+	nobuy = false
+	// #!endif
 
 	const currentPalette = getTheme().palette;
 	return (
@@ -53,7 +57,7 @@ export const StoreItem = (props: {
 					sources={sources}
 				/>
 			</Segment>
-			<Button attached='bottom' primary disabled={locked} onClick={() => props.onBuy()}>
+			<Button attached='bottom' primary disabled={locked || nobuy} onClick={() => props.onBuy()}>
 				<span style={{ display: 'inline-block' }}>
 					<img src={CONFIG.SPRITES[curr.icon].url} height={16} />
 				</span>

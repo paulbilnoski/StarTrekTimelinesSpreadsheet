@@ -99,6 +99,14 @@ export const FactionDisplay = (props: {
 	}
 
 	function buyItem(storeItem: FactionStoreItemDTO) : void {
+		let allowBuy = false;
+		{/* #!if allowPush == true */}
+		allowBuy = true;
+		{/* #!endif */}
+		if (!allowBuy) {
+			return;
+		}
+
 		let id = storeItem.symbol + ':';
 		if (storeItem.offer.game_item.hash_key) {
 			id += storeItem.offer.game_item.hash_key;

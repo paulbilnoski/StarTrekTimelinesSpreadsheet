@@ -428,11 +428,13 @@ export const ReplicatorDialog = (props:{
 		</div>
 
 		<DialogFooter>
+			{/* #!if allowPush == true */}
 			<PrimaryButton
 				onClick={doReplicate}
 				text='Replicate'
 				disabled={!canBeReplicated || fuelTankValue < fuelCost}
 			/>
+			{/* #!endif */}
 			<DefaultButton onClick={closeDialog} text='Cancel' />
 		</DialogFooter>
 	</Dialog>

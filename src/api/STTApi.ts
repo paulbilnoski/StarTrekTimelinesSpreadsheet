@@ -533,9 +533,9 @@ export class STTApiClass {
 		}
 	}
 
-	async sellCrew(id: number): Promise<any> {
-		return this.executePostRequestWithUpdates('crew/sell', { id: id });
-	}
+	// async sellCrew(id: number): Promise<any> {
+	// 	return this.executePostRequestWithUpdates('crew/sell', { id: id });
+	// }
 
 	async sellManyCrew(ids: number[]): Promise<any> {
 		return this.executePostRequestWithUpdates('crew/sell_many', { ids: ids });

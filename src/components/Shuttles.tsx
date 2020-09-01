@@ -369,7 +369,9 @@ const ShuttleItem = (props: {
 				</Item.Description>
 				<Item.Extra>
 					State: {SHUTTLE_STATE_NAMES[shuttle.state] || SHUTTLE_STATE_NAME_UNKNOWN}
+					{/* #!if allowPush == true */}
 					{canStart && <Form.Button floated='right' onClick={start} content='Send Shuttle' />}
+					{/* #!endif */}
 				</Item.Extra>
 			</Item.Content>
 		</Item>

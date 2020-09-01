@@ -361,7 +361,9 @@ export const NeededEquipmentSources = (props: {
 
 	return <div>
 		{res}
+		{/* #!if allowPush == true */}
 		<WarpDialog questId={warpQuestId} masteryLevel={warpMasteryLevel} onWarped={() => onWarp(true)} onClose={() => onWarp(false)} />
+		{/* #!endif */}
 	</div>;
 }
 
@@ -465,6 +467,8 @@ const FarmList = (props:{
 	return <CollapsibleSection title='Farming list (WORK IN PROGRESS, NEEDS A LOT OF IMPROVEMENT)'>
 		<p>This list minimizes the number of missions that can yield all filtered equipment as rewards (it <b>doesn't</b> factor in drop chances).</p>
 		{res}
+		{/* #!if allowPush == true */}
 		<WarpDialog questId={warpQuestId} masteryLevel={warpMasteryLevel} onWarped={() => onWarp(true)} onClose={() => onWarp(false)} />
+		{/* #!endif */}
 	</CollapsibleSection>;
 }
