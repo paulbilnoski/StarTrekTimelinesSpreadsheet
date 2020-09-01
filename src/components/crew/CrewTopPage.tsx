@@ -34,12 +34,7 @@ export const CrewTopPage = (props: {
 		_updateCommandItems();
 	}, [showFrozen]);
 
-	const displayModes = ['Base',
-		// 'Base Rank',
-		'Gauntlet',
-		//'Gauntlet Rank',
-		// 'Shuttle Pair'
-	];
+	const displayModes = ['Base', 'Base Rank', 'Gauntlet', 'Gauntlet Rank'];//, 'Shuttle Pair'];
 
 	//TODO: based on current display mode, get meta for the tables to show
 	let rankMeta : RankMeta[] = [];
@@ -66,20 +61,20 @@ export const CrewTopPage = (props: {
 			});
 		});
 	}
-	// else if (displayMode === displayModes[1]) {
-	// 	Object.keys(CONFIG.SKILLS).forEach(skA => {
-	// 		const skA_short = CONFIG.SKILLS_SHORT[skA];
-	// 		rankMeta.push({
-	// 			title: skA_short,
-	// 			valueTitle: 'Rank',
-	// 			// gauntlet 'rank' is ASC, so get a-b
-	// 			compareFn: (a, b) => (a.datacore?.ranks['B_' + skA_short] ?? 10000) - (b.datacore?.ranks['B_' + skA_short] ?? 10000),
-	// 			valueFn: (c) => c.datacore?.ranks['B_' + skA_short] ?? 0,
-	// 			showRarity: true,
-	// 		});
-	// 	});
-	// }
 	else if (displayMode === displayModes[1]) {
+		Object.keys(CONFIG.SKILLS).forEach(skA => {
+			const skA_short = CONFIG.SKILLS_SHORT[skA];
+			rankMeta.push({
+				title: skA_short,
+				valueTitle: 'Rank',
+				// gauntlet 'rank' is ASC, so get a-b
+				compareFn: (a, b) => (a.datacore?.ranks['B_' + skA_short] ?? 10000) - (b.datacore?.ranks['B_' + skA_short] ?? 10000),
+				valueFn: (c) => c.datacore?.ranks['B_' + skA_short] ?? 0,
+				showRarity: true,
+			});
+		});
+	}
+	else if (displayMode === displayModes[2]) {
 		Object.keys(CONFIG.SKILLS).forEach(skA => {
 			const skA_short = CONFIG.SKILLS_SHORT[skA];
 			Object.keys(CONFIG.SKILLS).forEach(skB => {
@@ -96,22 +91,22 @@ export const CrewTopPage = (props: {
 			});
 		});
 	}
-	// else if (displayMode === displayModes[3]) {
-	// 	Object.keys(CONFIG.SKILLS).forEach(skA => {
-	// 		const skA_short = CONFIG.SKILLS_SHORT[skA];
-	// 		Object.keys(CONFIG.SKILLS).forEach(skB => {
-	// 			if (skB === skA) return;
-	// 			const skB_short = CONFIG.SKILLS_SHORT[skB];
-	// 			rankMeta.push({
-	// 				title: skA_short + '-' + skB_short,
-	// 				valueTitle: 'Rank',
-	// 				// gauntlet 'rank' is ASC, so get a-b
-	// 				compareFn: (a, b) => (a.datacore?.ranks['G_' + skA_short + '_' + skB_short] ?? 10000) - (b.datacore?.ranks['G_' + skA_short + '_' + skB_short] ?? 10000),
-	// 				valueFn: (c) => c.datacore?.ranks['G_' + skA_short + '_' + skB_short] ?? 0
-	// 			});
-	// 		});
-	// 	});
-	// }
+	else if (displayMode === displayModes[3]) {
+		Object.keys(CONFIG.SKILLS).forEach(skA => {
+			const skA_short = CONFIG.SKILLS_SHORT[skA];
+			Object.keys(CONFIG.SKILLS).forEach(skB => {
+				if (skB === skA) return;
+				const skB_short = CONFIG.SKILLS_SHORT[skB];
+				rankMeta.push({
+					title: skA_short + '-' + skB_short,
+					valueTitle: 'Rank',
+					// gauntlet 'rank' is ASC, so get a-b
+					compareFn: (a, b) => (a.datacore?.ranks['G_' + skA_short + '_' + skB_short] ?? 10000) - (b.datacore?.ranks['G_' + skA_short + '_' + skB_short] ?? 10000),
+					valueFn: (c) => c.datacore?.ranks['G_' + skA_short + '_' + skB_short] ?? 0
+				});
+			});
+		});
+	}
 
 	return <div>
 		<div className="mx-auto" style={{ display: 'block', width: '450px' }}>

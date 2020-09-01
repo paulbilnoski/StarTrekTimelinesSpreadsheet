@@ -523,16 +523,16 @@ export const CrewList = (props: {
 				aggregate: (vals) => vals.reduce((a: any, b: any) => (a || 0) + (b || 0), 0) / vals.length,
 				Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
 			},
-			// {
-			// 	id: 'bigbook_tier',
-			// 	Header: 'BBoB',
-			// 	minWidth: 30,
-			// 	maxWidth: 35,
-			// 	resizable: false,
-			// 	Cell: (cell) => cell.original ? <span style={{ color: cell.original.datacore?.in_portal ? "inherit" : "red" }}>{cell.original.datacore?.bigbook_tier ?? ''}</span> : <span />,
-			// 	accessor: (c) => c.datacore?.bigbook_tier ? Number(c.datacore.bigbook_tier) : 0,
-			// 	Aggregated: row => <span />
-			// }
+			{
+				id: 'bigbook_tier',
+				Header: 'BBoB',
+				minWidth: 30,
+				maxWidth: 35,
+				resizable: false,
+				Cell: (cell) => cell.original ? <span style={{ color: cell.original.datacore?.in_portal ? "inherit" : "red" }}>{cell.original.datacore?.bigbook_tier ?? ''}</span> : <span />,
+				accessor: (c) => c.datacore?.bigbook_tier ? c.datacore.bigbook_tier : 0,
+				Aggregated: row => <span />
+			}
 		);
 
 		if (!props.displayMode || props.displayMode === 'Voyage') {
@@ -548,17 +548,17 @@ export const CrewList = (props: {
 					aggregate: aggAvg,
 					Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
 				},
-				// {
-				// 	id: 'voyage_rank',
-				// 	Header: 'V Rank',
-				// 	minWidth: 50,
-				// 	maxWidth: 70,
-				// 	resizable: true,
-				// 	accessor: (c) => c.datacore?.ranks.voyRank ?? 0,
-				// 	Cell: (cell) => cell.original ? <div className='skill-stats-div'>{cell.original.datacore?.ranks.voyRank ?? ''}</div> : <span />,
-				// 	aggregate: aggAvg,
-				// 	Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
-				// }
+				{
+					id: 'voyage_rank',
+					Header: 'V Rank',
+					minWidth: 50,
+					maxWidth: 70,
+					resizable: true,
+					accessor: (c) => c.datacore?.ranks.voyRank ?? 0,
+					Cell: (cell) => cell.original ? <div className='skill-stats-div'>{cell.original.datacore?.ranks.voyRank ?? ''}</div> : <span />,
+					aggregate: aggAvg,
+					Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
+				}
 			);
 		}
 		if (!props.displayMode || props.displayMode === 'Gauntlet') {
@@ -574,17 +574,17 @@ export const CrewList = (props: {
 					aggregate: aggAvg,
 					Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
 				},
-				// {
-				// 	id: 'gauntlet_rank',
-				// 	Header: 'G Rank',
-				// 	minWidth: 50,
-				// 	maxWidth: 70,
-				// 	resizable: true,
-				// 	accessor: (c) => c.datacore?.ranks.gauntletRank ?? 0,
-				// 	Cell: (cell) => cell.original ? <div className='skill-stats-div'>{cell.original.datacore?.ranks.gauntletRank ?? ''}</div> : <span />,
-				// 	aggregate: aggAvg,
-				// 	Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
-				// }
+				{
+					id: 'gauntlet_rank',
+					Header: 'G Rank',
+					minWidth: 50,
+					maxWidth: 70,
+					resizable: true,
+					accessor: (c) => c.datacore?.ranks.gauntletRank ?? 0,
+					Cell: (cell) => cell.original ? <div className='skill-stats-div'>{cell.original.datacore?.ranks.gauntletRank ?? ''}</div> : <span />,
+					aggregate: aggAvg,
+					Aggregated: (row) => <span>{Math.floor(row.value)} (avg)</span>
+				}
 			);
 		}
 		_columns.push(

@@ -157,18 +157,17 @@ export const CrewPage = (props: {
                                 setCompactMode(isChecked);
                             }
                         },
-                        // {
-                        //     key: 'showEveryone',
-                        //     text: 'Show stats for all crew',
-                        //     canCheck: true,
-                        //     isChecked: showEveryone,
-                        //     onClick: () => {
-                        //         let isChecked = !showEveryone;
-                        //         setShowEveryone(isChecked);
-                        //         setCrewData(loadCrewData());
-                        //     }
-                        // }
-                        ]
+                        {
+                            key: 'showEveryone',
+                            text: 'Show stats for all crew',
+                            canCheck: true,
+                            isChecked: showEveryone,
+                            onClick: () => {
+                                let isChecked = !showEveryone;
+                                setShowEveryone(isChecked);
+                                setCrewData(loadCrewData());
+                            }
+                        }]
                     }
                 }
             ]);

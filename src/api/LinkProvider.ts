@@ -1,7 +1,7 @@
 import { CrewData, ItemData, ItemArchetypeDTO, RewardDTO } from './DTO';
 
 // TODO: A configurable UI option?
-const USE_WIKI: boolean = true;
+const USE_WIKI: boolean = false;
 
 export function getCrewDetailsLink(crew: CrewData): string {
 	if (USE_WIKI) {
@@ -27,9 +27,9 @@ export function getItemDetailsLink(item: ItemData | ItemArchetypeDTO | RewardDTO
 				// item
 				return 'https://datacore.app/item_info?symbol=' + item.symbol;
 			} else {
-				// misc (chronitons, merits, etc.)
-				// TODO: not available on datacore
-				return 'https://stt.wiki/wiki/' + item.full_name.split(' ').join('_');
+                // misc (chronitons, merits, etc.)
+                // TODO: not available on datacore
+                return 'https://stt.wiki/wiki/' + item.full_name.split(' ').join('_');
 			}
 		}
 	} else {

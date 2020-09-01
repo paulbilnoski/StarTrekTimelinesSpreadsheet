@@ -1,6 +1,6 @@
 import STTApi from "../../api/index";
 import CONFIG from "../../api/CONFIG";
-import { CrewAvatarDTO, CrewData, CrewDTO, PlayerCharacterDTO, SkillData, CrewActionDTO, CrewEquipmentSlotData } from '../../api/DTO'
+import { CrewAvatarDTO, CrewData, CrewDTO, PlayerCharacterDTO, SkillData, CrewActionDTO, CrewEquipmentSlotData, DatacoreCrewDTO } from '../../api/DTO'
 
 export interface BuffStat {
 	multiplier: number;
@@ -91,7 +91,7 @@ function crewToRoster(dto: CrewDTO) : CrewData {
 	}
 
 	// Add datacore "big book" details
-	// let datacore = STTApi.datacore.find(c => c.symbol === dto.symbol);
+	let datacore = STTApi.datacore.find(c => c.symbol === dto.symbol);
 
 	return {
 		id: dto.archetype_id,
@@ -137,7 +137,7 @@ function crewToRoster(dto: CrewDTO) : CrewData {
 		voyage_score,
 		gauntlet_score,
 		usage_value: 0,
-		// datacore
+		datacore
 	};
 }
 
@@ -146,34 +146,34 @@ function createFakeCrewId() : number {
 	return Math.round(val);
 }
 
-// export function buildCrewDataAllFromDatacore(allcrew: DatacoreCrewDTO[]) : CrewData[] {
-// 	const mapped = allcrew.map(dc => {
-// 		let crew : CrewDTO = {
-// 			archetype_id: dc.archetype_id,
-// 			base_skills: dc.base_skills,
-// 			favorite: false,
-// 			full_body: { file: dc.imageUrlPortrait },
-// 			icon: { file: dc.imageUrlPortrait },
-// 			level: 100,
-// 			max_level: 100,
-// 			max_rarity: dc.max_rarity,
-// 			name: dc.name,
-// 			portrait: { file: dc.imageUrlPortrait },
-// 			rarity: dc.max_rarity,
-// 			short_name: dc.short_name,
-// 			skills: dc.base_skills,
-// 			symbol: dc.symbol,
-// 			traits: dc.traits_named,
-// 			traits_hidden: dc.traits_hidden
-// 		} as CrewDTO;
+export function buildCrewDataAllFromDatacore(allcrew: DatacoreCrewDTO[]) : CrewData[] {
+	const mapped = allcrew.map(dc => {
+		let crew : CrewDTO = {
+			archetype_id: dc.archetype_id,
+			base_skills: dc.base_skills,
+			favorite: false,
+			full_body: { file: dc.imageUrlPortrait },
+			icon: { file: dc.imageUrlPortrait },
+			level: 100,
+			max_level: 100,
+			max_rarity: dc.max_rarity,
+			name: dc.name,
+			portrait: { file: dc.imageUrlPortrait },
+			rarity: dc.max_rarity,
+			short_name: dc.short_name,
+			skills: dc.base_skills,
+			symbol: dc.symbol,
+			traits: dc.traits_named,
+			traits_hidden: dc.traits_hidden
+		} as CrewDTO;
 
-// 		return crew;
-// 	});
+		return crew;
+	});
 
-// 	let crewdata = buildCrewDataAll(mapped);
-// 	crewdata.forEach(c => c.status.external = true);
-// 	return crewdata;
-// }
+	let crewdata = buildCrewDataAll(mapped);
+	crewdata.forEach(c => c.status.external = true);
+	return crewdata;
+}
 
 export function buildCrewDataAll(allcrew: CrewDTO[]): CrewData[] {
 	let rosterAll: CrewData[] = [];

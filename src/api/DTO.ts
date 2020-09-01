@@ -205,7 +205,7 @@ export interface CrewData {
 	/** each index is a skill name, e.g. 'command_skill' */
 	// shuttle_skill_pairs: { [sk_pri: string]: { [sk_sec: string] : number }; };
 
-	// datacore?: DatacoreCrewDTO;
+	datacore?: DatacoreCrewDTO;
 }
 
 export interface BorrowedCrewDTO {
@@ -1523,39 +1523,40 @@ export interface EventGatherPoolDTO {
 	}[];
 }
 
-// export interface DatacoreCrewDTO {
-// 	action: any;
-// 	archetype_id: number;
-// 	base_skills: { [skill: string]: SkillDTO; };
-// 	bigbook_tier: string; // number as string
-// 	collections: string[]; // collection title, not id
-// 	craftCost: number;
-// 	events: string; // number as string
-// 	factionOnlyTotal: number;
-// 	imageUrlPortrait: string;
-// 	in_portal: boolean;
-// 	markdownContent: string;
-// 	max_rarity: number;
-// 	name: string;
-// 	ranks: {
-// 		[key:string]: number;
-// 		chronCostRank: number;
-// 		voyRank: number;
-// 		gauntletRank: number;
-// 		// Contains base ranks as 'B_sk' (ex 'B_CMD')
-// 		// Contains gauntlet pairing ranks as 'G_sk1_sk2' (ex 'G_CMD_DIP')
-// 		// Contains voyage pairing ranks as 'V_sk1_sk2' (ex 'G_CMD_DIP')
-// 		// Contains 'A' ranks as 'B_sk' (ex 'B_CMD') (not sure what these are for)
-// 	};
-// 	ship_battle: any;
-// 	short_name: string;
-// 	// max skill values by rarity
-// 	skill_data: {
-// 		rarity: number;
-// 		base_skills: { [skill: string]: SkillDTO }
-// 	}[];
-// 	symbol: string;
-// 	totalChronCost: number;
-// 	traits_hidden: string[];
-// 	traits_named: string[];
-// }
+export interface DatacoreCrewDTO {
+	action: any;
+	archetype_id: number;
+	base_skills: { [skill: string]: SkillDTO; };
+	bigbook_tier: number;
+	collections: string[]; // collection title, not id
+	craftCost: number;
+	events: number;
+	factionOnlyTotal: number;
+	imageUrlPortrait: string;
+	in_portal: boolean;
+	markdownContent: string;
+	max_rarity: number;
+	name: string;
+	ranks: {
+		[key:string]: number;
+		chronCostRank: number;
+		voyRank: number;
+		gauntletRank: number;
+		// Contains base ranks as 'B_sk' (ex 'B_CMD')
+		// Contains gauntlet pairing ranks as 'G_sk1_sk2' (ex 'G_CMD_DIP')
+		// Contains voyage pairing ranks as 'V_sk1_sk2' (ex 'G_CMD_DIP')
+		// Contains 'A' ranks as 'B_sk' (ex 'B_CMD') (not sure what these are for)
+	};
+	ship_battle: any;
+	short_name: string;
+	// max skill values by rarity
+	skill_data: {
+		rarity: number;
+		base_skills: { [skill: string]: SkillDTO }
+	}[];
+	symbol: string;
+	totalChronCost: number;
+	traits: string[];
+	traits_hidden: string[];
+	traits_named: string[];
+}

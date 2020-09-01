@@ -1,6 +1,6 @@
 import STTApi from "./index";
 import CONFIG from "./CONFIG";
-import { buildCrewData } from '../components/crew/CrewTools';
+import { buildCrewData, buildCrewDataAllFromDatacore } from '../components/crew/CrewTools';
 import { matchShips } from './ShipTools';
 import { loadMissionData } from './MissionTools';
 import { loadFullTree, fixupAllCrewIds, buildItemData } from './EquipmentTools';
@@ -26,10 +26,10 @@ export async function loginSequence(onProgress: (description: string, subDesc?: 
 			loader: STTApi.loadShipSchematics.bind(STTApi),
 			description: 'ship information'
 		},
-		// {
-		// 	loader: STTApi.loadDatacore.bind(STTApi),
-		// 	description: 'datacore'
-		// },
+		{
+			loader: STTApi.loadDatacore.bind(STTApi),
+			description: 'datacore'
+		},
 		{
 			loader: STTApi.loadEventBorrowableCrew.bind(STTApi),
 			description: 'borrowable crew'
@@ -134,14 +134,14 @@ export async function loginSequence(onProgress: (description: string, subDesc?: 
 		await updateProgress('', '', loadFactionStore(faction));
 	}
 
-	// onProgress('Compiling Crew Data...');
-	// try {
-	// 	STTApi.allcrew = buildCrewDataAllFromDatacore(STTApi.datacore ?? []);
-	// }
-	// catch (e) {
-	// 	console.error(e);
-	// 	STTApi.allcrew = [];
-	// }
+	onProgress('Compiling Crew Data...');
+	try {
+		STTApi.allcrew = buildCrewDataAllFromDatacore(STTApi.datacore ?? []);
+	}
+	catch (e) {
+		console.error(e);
+		STTApi.allcrew = [];
+	}
 
 	onProgress('Loading Equipment...');
 	if (STTApi.inWebMode) {

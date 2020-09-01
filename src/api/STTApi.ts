@@ -32,7 +32,7 @@ import CONFIG from './CONFIG';
 import Moment from 'moment';
 import { PlayerDTO, ItemArchetypeDTO, PlatformConfigDTO, CrewAvatarDTO, ServerConfigDTO, ShipSchematicDTO,
 	CrewData, ShipDTO, MissionData, CrewDTO, SkillDTO, FleetSquadDTO, FleetMemberDTO, FleetStarbaseRoomDTO,
-	ItemData, PlayerResponseDTO, PlayerShuttleAdventureDTO, PlayerInspectDTO,
+	ItemData, PlayerResponseDTO, PlayerShuttleAdventureDTO, DatacoreCrewDTO, PlayerInspectDTO,
 	EventLeaderboardDTO, BorrowedCrewDTO, ImageDataDTO } from './DTO';
 // #!if ENV === 'electron'
 import fs from 'fs';
@@ -104,11 +104,11 @@ export class STTApiClass {
 
 	public inWebMode: boolean;
 	public allcrew!: CrewData[];
-	// public datacore!: DatacoreCrewDTO[];
+	public datacore!: DatacoreCrewDTO[];
 	public borrowableCrew!: BorrowedCrewDTO[];
 
 	public serverAddress: string = 'http://localhost/';
-	// private datacoreAddress: string = 'https://datacore.app/structured/botcrew.json';
+	private datacoreAddress: string = 'https://datacore.app/structured/botcrew.json';
 
 	// Used with Moment when adding an offset. Does not need to be used when
 	// doing a fresh request for data such as for gauntlet or voyage status
@@ -616,14 +616,14 @@ export class STTApiClass {
 	// 	return this._net.get(CONFIG.URL_GITHUBRELEASES, {});
 	// }
 
-	// async loadDatacore(): Promise<void> {
-	// 	this.datacore = [];
-	// 	try {
-	// 		this.datacore = await this._net.get_proxy(this.datacoreAddress, undefined);
-	// 	} catch (e) {
-	// 		console.log('Failed loading data from datacore.app' + e);
-	// 	}
-	// }
+	async loadDatacore(): Promise<void> {
+		this.datacore = [];
+		try {
+			this.datacore = await this._net.get_proxy(this.datacoreAddress, undefined);
+		} catch (e) {
+			console.log('Failed loading data from datacore.app' + e);
+		}
+	}
 
 	async refreshRoster(): Promise<void> {
 		// TODO: need to reload icon urls as well

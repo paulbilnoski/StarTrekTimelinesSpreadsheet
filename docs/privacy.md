@@ -12,8 +12,8 @@ There is no server associated with the standalone version of this tool, all stat
 	- This URL is accessed when (and only if) you use the Share dialog to share your crew stats online.
 - `https://www.facebook.com/v2.8/dialog/oauth`
 	- This URL is only accessed if you use the Facebook login option. It's used to obtain a facebook access token which is later sent to DB's server to get an access_token.
-<!-- - `https://datacore.app/` -->
-<!--	- This URL is used to access the "big book" content such as subjective crew rankings and portal availability of crew -->
+- `https://datacore.app/`
+	- This URL is used to access the "big book" content such as subjective crew rankings and portal availability of crew
 
 The tool never stores your username or password and it only sends it to the game's official servers for login purposes. If you check the "Stay logged in" checkbox in the login dialog, the tool will store an access_token on your local device in the IndexedDB database.
 
